@@ -25,7 +25,7 @@ class YahooWeatherProvider implements WeatherProviderInterface
         $dataJson = @file_get_contents($queryUrl);
         $data = json_decode($dataJson);
 
-        if (strpos($http_response_header[0], "200 OK" !== false)) {
+        if (strpos($http_response_header[0], "200 OK") === false) {
             throw new WeatherProviderException("Could not get current weather data from Yahoo Weather.\n");
         }
 
