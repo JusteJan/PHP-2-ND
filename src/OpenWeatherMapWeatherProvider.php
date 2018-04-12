@@ -25,7 +25,7 @@ class OpenWeatherMapWeatherProvider implements WeatherProviderInterface
 
         $dataJson = @file_get_contents($queryUrl);
 
-        if (strpos($http_response_header[0], "200 OK" !== false)) {
+        if (strpos($http_response_header[0], "200 OK") === false) {
             throw new WeatherProviderException("Could not get current weather data from OpenWeatherMap.\n");
         }
 
